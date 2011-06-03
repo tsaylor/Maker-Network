@@ -1,0 +1,15 @@
+settings_local*.py
+local_settings.py
+*.db
+*.class
+*.pyc
+*~
+#*
+*#
+.project
+.pydevproject
+static/downloads
+ant-user.properties
+django_docs
+*.swp
+doc/_build
