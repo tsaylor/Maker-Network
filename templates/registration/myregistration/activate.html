@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if account %}
+<p>Your account is now active.  Please <a href="/accounts/login/">log in</a>.</p>
+{% else %}
+<p>That is not a valid activation key.</p>
+{% endif %}
+{% endblock content %} 

@@ -1,0 +1,45 @@
+body {
+	font-family: helvetica;
+}
+
+h1 {
+	font-family: impact, helvetica;
+}
+
+.navbar a {
+	margin-right: 15px;
+}
+
+.action_link {
+	font-size: 10px;
+	padding-left: 10px;
+}
+
+.task {
+	margin-left: 15px;
+}
+
+.task_name {
+	margin-bottom: 0px;
+	display: inline;
+}
+
+.task_description {
+}
+
+.task_users {
+	margin-left: 30px;
+	color: #888;
+}
+
+.task_user {
+	margin-right: 15px;
+}
+
+.success {
+	color: #00ff00;
+}
+
+.error {
+	color: #ff0000;
+}
