@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block extrastyle %}
+
+{% endblock extrastyle %}
+
+{% block content %}
+<p><a href="{% url auth_login %}?next=/">Log in</a> or <a href="{% url registration_register %}">sign up</a> to start WINNING at EMAIL!</p>
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock content %}

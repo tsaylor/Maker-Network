@@ -5,42 +5,18 @@
 {% endblock extrastyle %}
 
 {% block content %}
-{% if user.is_authenticated %}
-    <p>Welcome, {% if user.first_name %}{{user.first_name}}{% else %}{{ user.username }}{% endif %}.  Join a task below to help make Pumping Station: One a better place for everyone.</p>
-{% else %}
-    <p><a href="{% url auth_login %}?next=/">Log in</a> or <a href="{% url registration_register %}">sign up</a> to WIN at HACKERSPACES!</p>
-{% endif %}
 
-{% if messages %}
-<div class="messages">
-    {% for message in messages %}
-    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
-    {% endfor %}
-</div>
-{% endif %}
-<br><br>
-{% for task in tasks %}
-	<div class="task">
-	<h3 class="task_name">{{task.name}}</h3>
-	{% if user.is_authenticated %}
-		{% if user in task.users.all %}
-			<a class="action_link" href="{% url quittask task.id %}">quit this task</a>
-		{% else %}
-			<a class="action_link" href="{% url jointask task.id %}">join this task</a>
-		{% endif %}
-	{% endif %}
-	<p class="task_description">{{task.description}}</p>
-	<p class="task_users">
-		{% for user in task.users.all %}
-			{% if user.first_name %}
-				<span class="task_user">{{user.first_name}} {{user.last_name}}</span>
-			{% else %}
-				<span class="task_user">{{user.username}}</span>
-			{% endif %}
-		{% empty %}
-			<span class="task_user">Nobody has joined this task yet.</span>
-		{% endfor %}
-	</p>
-	</div>
+<ul class="taglist">
+{% for t in subscribedtags %}
+    <li><a href="#">{{t}}</a></li>
 {% endfor %}
+</ul>
+<div class="tagmessagelist">
+{% for msg in tagmessages %}
+	<a class="tagmessage" href="#">
+	    <span class="subject">{{msg.subject}}</span> - <span class="sender">{{msg.sender.first_name}} {{msg.sender.last_name}}</span>
+        <p class="snippet">{{msg.body|truncatewords:8}}</p>
+	</a>
+{% endfor %}
+</div>
 {% endblock content %}

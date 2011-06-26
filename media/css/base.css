@@ -1,39 +1,72 @@
 body {
 	font-family: helvetica;
+    margin: 0px;
 }
 
 h1 {
 	font-family: impact, helvetica;
 }
 
+.userbar {
+    float: right;
+}
+
 .navbar a {
 	margin-right: 15px;
 }
 
-.action_link {
-	font-size: 10px;
-	padding-left: 10px;
+.fieldWrapper div {
+    width: 100px;
+    display: inline-block;
+    text-align: right;
 }
 
-.task {
-	margin-left: 15px;
+.fieldWrapper input, .fieldWrapper select {
+    width: 300px;
 }
 
-.task_name {
-	margin-bottom: 0px;
-	display: inline;
+.fieldWrapper p {
+    margin: 0 0 0 105px;
 }
 
-.task_description {
+.taglist {
+    width: 8%;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    display: inline-block;
+    float: left;
+    border-right: 1px solid black;
 }
 
-.task_users {
-	margin-left: 30px;
-	color: #888;
+.taglist li {
+    margin-bottom: 5px;
 }
 
-.task_user {
-	margin-right: 15px;
+.tagmessagelist {
+    width: 50%;
+    padding-left: 5px;
+    display: inline-block;
+}
+
+.tagmessage {
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid black;
+    display: inline-block;
+}
+
+.subject {
+}
+
+.sender {
+}
+
+.snippet {
+    color: #888888;
+    margin-top: 2px;
+    margin-bottom: 0px;
 }
 
 .success {
