@@ -49,7 +49,7 @@ h1 {
 }
 
 .taglist li.selected a {
-    color: #ffffff;
+    color: #fff;
 }
 
 .tagthreadlist {
@@ -57,6 +57,7 @@ h1 {
     padding-left: 5px;
     display: inline-block;
     border-left: 1px solid black;
+    float: left;
 }
 
 .tagthread {
@@ -75,9 +76,18 @@ h1 {
 }
 
 .snippet {
-    color: #888888;
+    color: #888;
     margin-top: 2px;
     margin-bottom: 0px;
+}
+
+.tag {
+    color: #fff;
+    background-color: #aaa;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    padding: 0 5px 0 5px;
+    margin-right: 5px;
 }
 
 .success {

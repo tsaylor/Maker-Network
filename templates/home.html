@@ -20,10 +20,18 @@
 
 <div class="tagthreadlist">
 {% for thread in tagthreads %}
-	<a class="tagthread" href="{% url tagmail_view_thread thread.pk %}">
-	    <span class="subject">{{thread.subject}}</span> - <span class="sender">{{thread.sender.first_name}} {{thread.sender.last_name}}</span>
-        <p class="snippet">{{thread.body|truncatewords:15}}</p>
+	<a class="tagthread" href="{% url tagmail_view_thread thread.pk thread.slug %}">
+	    <span class="subject">{{thread.subject}}</span> - <span class="sender">{{thread.messages.all.0.sender.get_full_name}}</span>
+        <p class="snippet">{{thread.messages.all.0.body|truncatewords:15}}</p>
+        {% for t in thread.tags.all %}<span class="tag">{{t}}</span>{% endfor %}
 	</a>
 {% endfor %}
+</div>
+</div>
+<div style="display: inline-block;">
+<h3>Start a new thread</h3>
+{% with "" as action %}
+    {% include "general/generic_form.html" %}
+{% endwith %}
 </div>
 {% endblock content %}

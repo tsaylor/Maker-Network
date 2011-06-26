@@ -1,0 +1,10 @@
+<form action="{{action}}" method="post">
+    {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            <div class="label">{{ field.label_tag }}</div>: {{ field }}
+            {% if field.help_text %}<p>{{field.help_text}}</p>{% endif %}
+        </div>
+    {% endfor %}
+    <p><input type="submit" value="Submit" /></p>
+</form>

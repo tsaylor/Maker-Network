@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>From: {{message.sender.first_name}} {{message.sender.last_name}} </p>
-<p>Subject: {{message.subject}}</p>
-<br>
-<p>{{message.body}}</p>
+<h3>{{thread.subject}}</h3>
+{% for message in thread.messages.all %}
+    <p>From: {{message.sender.get_full_name}} </p>
+    <p>Date: {{message.sent_date}}</p>
+    <br>
+    <p>{{message.body}}</p>
+    {% if not forloop.last %}<hr>{% endif %}
+{% endfor %}
 {% endblock content %}

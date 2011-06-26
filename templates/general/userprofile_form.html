@@ -1,13 +1,4 @@
 {% extends "base.html" %}
 {% block content %}
-<form action="" method="post">
-    {% for field in form %}
-        <div class="fieldWrapper">
-            {{ field.errors }}
-            <div class="label">{{ field.label_tag }}</div>: {{ field }}
-            {% if field.help_text %}<p>{{field.help_text}}</p>{% endif %}
-        </div>
-    {% endfor %}
-    <p><input type="submit" value="Save" /></p>
-</form>
+{% include "general/generic_form.html" %}
 {% endblock content %}
