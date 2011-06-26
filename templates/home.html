@@ -6,16 +6,23 @@
 
 {% block content %}
 
+{% if selected == "all-your-threads" %}<h3>Showing all your threads</h3>
+{% else %}{% if selected == "all-threads" %}<h3>Showing all threads</h3>
+{% else %}<h3>Showing threads tagged "{{selected}}"</h3>{% endif %}{% endif %}
+
 <ul class="taglist">
+    <li {% if selected == "all-your-threads" %}class="selected"{% endif%}><a href="{% url home %}?special=all-your-threads">All your threads</a></li>
 {% for t in subscribedtags %}
-    <li><a href="#">{{t}}</a></li>
+    <li {% if selected == t %}class="selected"{% endif%}><a href="{% url home %}?tag={{t.slug}}">{{t}}</a></li>
 {% endfor %}
+    <li {% if selected == "all-threads" %}class="selected"{% endif%}><a href="{% url home %}?special=all-threads">All threads</a></li>
 </ul>
-<div class="tagmessagelist">
-{% for msg in tagmessages %}
-	<a class="tagmessage" href="#">
-	    <span class="subject">{{msg.subject}}</span> - <span class="sender">{{msg.sender.first_name}} {{msg.sender.last_name}}</span>
-        <p class="snippet">{{msg.body|truncatewords:8}}</p>
+
+<div class="tagthreadlist">
+{% for thread in tagthreads %}
+	<a class="tagthread" href="{% url tagmail_view_thread thread.pk %}">
+	    <span class="subject">{{thread.subject}}</span> - <span class="sender">{{thread.sender.first_name}} {{thread.sender.last_name}}</span>
+        <p class="snippet">{{thread.body|truncatewords:15}}</p>
 	</a>
 {% endfor %}
 </div>
