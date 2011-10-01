@@ -83,6 +83,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.comments',
+    'threadedcomments',
     'registration',
     'taggit',
     'tagmail',
@@ -92,6 +94,8 @@ INSTALLED_APPS = (
 
 ACCOUNT_ACTIVATION_DAYS = 7
 AUTH_PROFILE_MODULE = 'general.UserProfile'
-INTERNAL_IPS = ('127.0.0.1',)
+#INTERNAL_IPS = ('127.0.0.1',)
+COMMENTS_APP = 'threadedcomments'
+#COMMENT_MAX_LENGTH = 3000
 
 from local_settings import *

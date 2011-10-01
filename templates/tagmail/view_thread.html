@@ -1,12 +1,15 @@
 {% extends "base.html" %}
+{% load comments %}
+{% load threadedcommentstags %}
 
 {% block content %}
 <h3>{{thread.subject}}</h3>
-{% for message in thread.messages.all %}
+{% render_comment_form for thread %}
+{% comment %}{% for message in thread.messages.all %}
     <p>From: {{message.sender.get_full_name}} </p>
     <p>Date: {{message.sent_date}}</p>
     <br>
     <p>{{message.body}}</p>
     {% if not forloop.last %}<hr>{% endif %}
-{% endfor %}
+{% endfor %}{% endcomment %}
 {% endblock content %}

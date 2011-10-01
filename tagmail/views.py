@@ -22,10 +22,10 @@ def home(request):
             thread = TagThread(subject = form.cleaned_data['subject'])
             thread.save()
             thread.tags.add(*form.cleaned_data['tags'])
-            message = TagMessage(sender = request.user,
-                                 body = form.cleaned_data['body'],
-                                 thread = thread)
-            message.save()
+            #message = TagMessage(sender = request.user,
+            #                     body = form.cleaned_data['body'],
+            #                     thread = thread)
+            #message.save()
             return HttpResponseRedirect(thread.get_absolute_url())
     else:
         form = NewThreadForm()

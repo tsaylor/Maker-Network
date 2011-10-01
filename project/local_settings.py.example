@@ -1,0 +1,9 @@
+import os
+
+DEBUG = True
+
+MEDIA_SERVE = True
+MEDIA_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'media'))
+
+DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+DATABASE_NAME = 'site.db'

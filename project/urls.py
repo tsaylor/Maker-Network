@@ -10,6 +10,8 @@ urlpatterns = patterns('',
     # Example:
     # (r'^project/', include('project.foo.urls')),
     (r'^accounts/', include('registration.urls')),
+    (r'^messages/', include('django.contrib.comments.urls')),
+
 
     url(r'^$', 'tagmail.views.home', name='home'),
     url(r'^view_thread/(?P<pk>\d*)/(?P<slug>[\w-]*)$', 'tagmail.views.view_thread', name='tagmail_view_thread'),
