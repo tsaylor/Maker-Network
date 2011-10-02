@@ -42,6 +42,12 @@ class Organization(models.Model):
         return self.name
 
 
+class Resource(models.Model):
+    name = models.CharField(max_length = 255)
 
+    def __unicode__(self):
+        return self.name
+
+admin.site.register(Resource)
 admin.site.register(Organization)
 admin.site.register(UserProfile)

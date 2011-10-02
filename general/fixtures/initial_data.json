@@ -1,0 +1,282 @@
+[
+    {
+        "pk": 1, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "Drill Press"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "Table Saw"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "Oscilloscope"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "Laser Cutter"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "Serger sewing machine"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "standard sewing machine"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "dremel"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "3d printer (extruded plastic)"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "Loom"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "server rack"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "welder"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "angle grinder"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "router"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "mill"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "lathe"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "screen printing machine"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "laminator"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "bandsaw"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "miter saw"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "foundry"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "forge"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "vinyl cutter"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "multi meter"
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "power supply"
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "function generator"
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "LCR meter"
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "current clamp"
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "hot air pencil"
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "reflow oven"
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "pipe bender"
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "projector"
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "sheet metal brake"
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "english wheel"
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "jointer"
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "cnc router"
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "mortising machine"
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "down-draft table"
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "vaccu-form machine"
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "padded patterning table"
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "general.resource", 
+        "fields": {
+            "name": "cnc embroidery machine"
+        }
+    }
+]
