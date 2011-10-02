@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Resources</h2>
+<ul>
+{% for resource in object_list %}
+    <li><a href="{% url resource_detail resource.id %}">{{ resource.name }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

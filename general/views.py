@@ -26,3 +26,19 @@ def join_organization(request, object_id):
         org.members.add(request.user)
         messages.add_message(request, messages.INFO, 'You have joined %s' % org.name)
     return HttpResponseRedirect(reverse('organization_detail', kwargs={'object_id':org.id}))
+
+def remove_resource(request, resource_id):
+    if request.method == "POST":
+        org = get_object_or_404(models.Organization, id = request.POST.get('org_id', 0))
+        resource = get_object_or_404(models.Resource, id = resource_id)
+        org.resources.remove(resource)
+        messages.add_message(request, messages.INFO, 'You have removed your %s from your inventory' % resource.name)
+    return HttpResponseRedirect(reverse('resource_detail', kwargs={'object_id':resource.id}))
+
+def add_resource(request, resource_id):
+    if request.method == "POST":
+        org = get_object_or_404(models.Organization, id = request.POST.get('org_id', 0))
+        resource = get_object_or_404(models.Resource, id = resource_id)
+        org.resources.add(resource)
+        messages.add_message(request, messages.INFO, 'You have added %s to your inventory' % resource.name)
+    return HttpResponseRedirect(reverse('resource_detail', kwargs={'object_id':resource.id}))

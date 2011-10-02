@@ -19,9 +19,11 @@
     <a href="{% url auth_login %}">Log in</a>
     {% endif %}
 </div>
-<a href="{% url home %}"><h1>Talk Tagger</h1></a>
+<a href="{% url home %}"><h1>Maker Network</h1></a>
 <div class="navbar">
     <a href="{% url home %}">Home</a>
+    <a href="{% url organization_list %}">Groups</a>
+    <a href="{% url resource_list %}">Resources</a>
 </div>
 {% if messages %}
 <div class="messages">

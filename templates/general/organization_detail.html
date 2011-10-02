@@ -19,12 +19,10 @@
     <li>{{ member.get_full_name }}</li>
 {% endfor %}
 </ul>
-{% comment %}
 <h3>Resources</h3>
-{% for resource in org.resources %}
+{% for resource in org.resources.all %}
     <li>{{ resource.name }}</li>
 {% endfor %}
 </ul>
-{% endcomment %}
 
 {% endblock %}

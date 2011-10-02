@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ resource.name }}</h2>
+<form action="{% url resource_remove resource.id %}" method="POST">{% csrf_token %}
+    <input type="submit" name="Submit" value="Remove this resource" />
+    <select name="org_id">
+        {% for org in user.organizations.all %}
+        {% if org in resource.owners.all %}
+        <option value='{{ org.id }}'>{{ org.name }}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+</form>
+<form action="{% url resource_add resource.id %}" method="POST">{% csrf_token %}
+    <input type="submit" name="Submit" value="Add this resource" />
+    <select name="org_id">
+        {% for org in user.organizations.all %}
+        {% if org not in resource.owners.all %}
+        <option value='{{ org.id }}'>{{ org.name }}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+</form>
+<h3>Groups that have this</h3>
+<ul>
+{% for org in resource.owners.all %}
+    <li>{{ org.name }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
