@@ -4,6 +4,15 @@
 <a href="{% url organization_list %}">Back to all groups</a>
 <h2>{{ org.name }}</h2>
 <p>{{ org.description }}</p>
+{% if user in org.members.all %}
+<form action="{% url organization_leave org.id %}" method="POST">{% csrf_token %}
+    <input type="submit" name="Submit" value="Leave this group" />
+</form>
+{% else %}
+<form action="{% url organization_join org.id %}" method="POST">{% csrf_token %}
+    <input type="submit" name="Submit" value="Join this group" />
+</form>
+{% endif %}
 <h3>Members</h3>
 <ul>
 {% for member in org.members.all %}
