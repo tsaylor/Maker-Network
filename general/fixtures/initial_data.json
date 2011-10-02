@@ -1,0 +1,50 @@
+[
+    {
+        "pk": 1, 
+        "model": "general.skill", 
+        "fields": {
+            "user_profiles": [], 
+            "title": "Soldering"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "general.skill", 
+        "fields": {
+            "user_profiles": [], 
+            "title": "Welding"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "general.skill", 
+        "fields": {
+            "user_profiles": [], 
+            "title": "Sewing"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "general.skill", 
+        "fields": {
+            "user_profiles": [], 
+            "title": "Wood Working"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "general.skill", 
+        "fields": {
+            "user_profiles": [], 
+            "title": "Circuit Hacking"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "general.skill", 
+        "fields": {
+            "user_profiles": [], 
+            "title": "Computer Hacking"
+        }
+    }
+]

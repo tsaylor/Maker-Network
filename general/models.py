@@ -29,6 +29,14 @@ def create_user_profile(sender, **kwargs):
 post_save.connect(create_user_profile, sender=User)
 
 
+class Skill(models.Model):
+    user_profiles = models.ManyToManyField(UserProfile, null=True, blank=True)
+    title = models.CharField( max_length=30 )
+
+    def __unicode__(self):
+        return self.title
+
+
 class Organization(models.Model):
     name = models.CharField(max_length = 255, unique=True)
     description = models.TextField(blank = True)
@@ -46,12 +54,6 @@ class Organization(models.Model):
 
 
 
-admin.site.register(Organization)
 admin.site.register(UserProfile)
-
-class Skill(models.Model):
-    user_profile = models.ManyToManyField(UserProfile)
-    title = models.CharField( max_length=30 )
-
-#    def __unicode__(self):
-#        return self.user_profile.__unicode__()
+admin.site.register(Skill)
+admin.site.register(Organization)

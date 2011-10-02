@@ -99,8 +99,4 @@ AUTH_PROFILE_MODULE = 'general.UserProfile'
 COMMENTS_APP = 'threadedcomments'
 #COMMENT_MAX_LENGTH = 3000
 
-FIXTURE_DIRS = (
-   os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fixtures'))
-)
-
 from local_settings import *
