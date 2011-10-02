@@ -64,7 +64,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+#    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'project.urls'
@@ -89,7 +89,7 @@ INSTALLED_APPS = (
     'taggit',
     'tagmail',
     'general',
-    'debug_toolbar',
+#    'debug_toolbar',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7
@@ -97,5 +97,9 @@ AUTH_PROFILE_MODULE = 'general.UserProfile'
 #INTERNAL_IPS = ('127.0.0.1',)
 COMMENTS_APP = 'threadedcomments'
 #COMMENT_MAX_LENGTH = 3000
+
+FIXTURE_DIRS = (
+   os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fixtures'))
+)
 
 from local_settings import *
