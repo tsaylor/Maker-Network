@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Groups</h2>
+<ul>
+{% for org in object_list %}
+    <li><a href="{% url organization_detail org.id %}">{{ org.name }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

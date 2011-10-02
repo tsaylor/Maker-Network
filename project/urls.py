@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^view_thread/(?P<pk>\d*)/(?P<slug>[\w-]*)$', 'tagmail.views.view_thread', name='tagmail_view_thread'),
     
     url(r'^profile/', 'general.views.view_profile', name='profile'),
+    url(r'^groups/', include('general.org_urls')),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:

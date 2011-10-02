@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url organization_list %}">Back to all groups</a>
+<h2>{{ org.name }}</h2>
+<p>{{ org.description }}</p>
+<h3>Members</h3>
+<ul>
+{% for member in org.members.all %}
+    <li>{{ member.get_full_name }}</li>
+{% endfor %}
+</ul>
+{% comment %}
+<h3>Resources</h3>
+{% for resource in org.resources %}
+    <li>{{ resource.name }}</li>
+{% endfor %}
+</ul>
+{% endcomment %}
+
+{% endblock %}
