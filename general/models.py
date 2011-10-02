@@ -29,6 +29,24 @@ def create_user_profile(sender, **kwargs):
 post_save.connect(create_user_profile, sender=User)
 
 
+class Organization(models.Model):
+    name = models.CharField(max_length = 255, unique=True)
+    description = models.TextField(blank = True)
+    url = models.URLField(blank = True)
+    addr1 = models.CharField(verbose_name = "Address", max_length = 255, blank = True)
+    addr2 = models.CharField(verbose_name = "Address (cont.)", max_length = 255, blank = True)
+    city = models.CharField(max_length = 255, blank = True)
+    state = models.CharField(max_length = 255, blank = True)
+    postal_code = models.CharField(max_length = 255, blank = True)
+    members = models.ManyToManyField(User, related_name="organizations")
+    admin = models.ForeignKey(User)
+
+    def __unicode__(self):
+        return self.name
+
+
+
+admin.site.register(Organization)
 admin.site.register(UserProfile)
 
 class Skill(models.Model):
