@@ -24,6 +24,9 @@
     <a href="{% url home %}">Home</a>
     <a href="{% url organization_list %}">Groups</a>
     <a href="{% url resource_list %}">Resources</a>
+    <form action="{% url search_results %}" method="GET">
+        <input type="text" name="q" />
+    </form>
 </div>
 {% if messages %}
 <div class="messages">
