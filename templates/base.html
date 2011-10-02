@@ -13,7 +13,7 @@
         {% if user.is_staff %}
         <a href="/admin/">admin</a> | 
         {% endif %}
-    <a href="{% url profile %}">{{user.get_full_name}}</a> | 
+    <a href="{% url profile %}">{{user.username}}</a> | 
     <a href="{% url auth_logout %}">Log Out</a>
     {% else %}
     <a href="{% url auth_login %}">Log in</a>

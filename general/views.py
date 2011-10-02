@@ -11,7 +11,7 @@ def view_profile(request):
     return edit_profile(request)
 
 def edit_profile(request):
-    return update_object(request, model=models.UserProfile, object_id=request.user.pk)
+    return update_object(request, model=models.UserProfile, object_id=request.user.get_profile().pk)
 
 def leave_organization(request, object_id):
     if request.method == "POST":
