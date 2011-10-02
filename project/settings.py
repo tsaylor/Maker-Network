@@ -1,4 +1,5 @@
 # Django settings for project project.
+# do this eventually: http://www.reddit.com/tb/h00c3
 
 import os
 
