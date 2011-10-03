@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Searched for '{{q}}'</h2>
+
+<dl class='list'>
+{% for name, objects in results %}
+    <dt>{{name}}</dt>
+    <dd>
+        <ul>
+            {% for object in objects %}
+                <a href="{{ object.get_absolute_url }}">{{ object }}</a>
+                {% comment %} nice way to do it, but not now {% include object.item_template %} {% endcomment %}
+            {% endfor %}
+        </ul>
+    </dd>
+{% endfor %}
+</dl>
+{% endblock %}
