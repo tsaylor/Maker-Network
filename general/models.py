@@ -10,6 +10,9 @@ from taggit.managers import TaggableManager
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
     subscriptions = TaggableManager()
+    city = models.CharField( max_length=50 )
+    state = models.CharField( max_length=50 )
+    postal_code = models.CharField( max_length=25 )
     url = models.URLField(blank=True)
 
     def __unicode__(self):
@@ -25,6 +28,14 @@ def create_user_profile(sender, **kwargs):
         up.save()
         
 post_save.connect(create_user_profile, sender=User)
+
+
+class Skill(models.Model):
+    user_profiles = models.ManyToManyField(UserProfile, null=True, blank=True)
+    title = models.CharField( max_length=30 )
+
+    def __unicode__(self):
+        return self.title
 
 
 class Organization(models.Model):
@@ -74,5 +85,6 @@ class Resource(models.Model):
 
 
 admin.site.register(Resource)
-admin.site.register(Organization)
 admin.site.register(UserProfile)
+admin.site.register(Skill)
+admin.site.register(Organization)
