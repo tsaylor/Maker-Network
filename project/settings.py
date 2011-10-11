@@ -93,6 +93,15 @@ INSTALLED_APPS = (
 #    'debug_toolbar',
 )
 
+CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.contrib.messages.context_processors.messages"
+)
+
 ACCOUNT_ACTIVATION_DAYS = 7
 AUTH_PROFILE_MODULE = 'general.UserProfile'
 #INTERNAL_IPS = ('127.0.0.1',)

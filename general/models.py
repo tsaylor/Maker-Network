@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.contrib import admin
@@ -48,12 +49,42 @@ class Organization(models.Model):
     postal_code = models.CharField(max_length = 255, blank = True)
     members = models.ManyToManyField(User, related_name="organizations")
     admin = models.ForeignKey(User)
+    resources = models.ManyToManyField('Resource', related_name='owners', blank=True, null=True)
 
     def __unicode__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('organization_detail', kwargs={'object_id': self.id})
+
+    @classmethod
+    def search(cls, q):
+        return cls.objects.all().distinct().filter(
+            Q(name__icontains=q) |
+            Q(description__icontains=q) |
+            Q(city__icontains=q) |
+            Q(state__icontains=q) |
+            Q(postal_code__icontains=q)
+            )
 
 
-admin.site.register(UserProfile)
-admin.site.register(Skill)
+class Resource(models.Model):
+    name = models.CharField(max_length = 255)
+
+    def __unicode__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('resource_detail', kwargs={'object_id': self.id})
+
+    @classmethod
+    def search(cls, q):
+        return cls.objects.all().distinct().filter(
+            Q(name__icontains=q)
+            )
+
+
+admin.site.register(Resource)
 admin.site.register(Organization)
+admin.site.register(Skill)
+admin.site.register(UserProfile)

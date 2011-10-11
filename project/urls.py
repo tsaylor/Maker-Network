@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     
     url(r'^profile/', 'general.views.view_profile', name='profile'),
     url(r'^groups/', include('general.org_urls')),
+    url(r'^resources/', include('general.resource_urls')),
+    url(r'^search/', 'general.views.search', name='search_results'),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
