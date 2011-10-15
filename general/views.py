@@ -48,6 +48,7 @@ def search(request):
     results = [
         ('Groups', models.Organization.search(q)),
         ('Resources', models.Resource.search(q)),
+        ('Skills', models.Skill.search(q)),
     ]
 
     results = filter(lambda x: x[1].count() > 0, results)

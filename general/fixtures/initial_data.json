@@ -1,6 +1,6 @@
 [
-    {
-        "pk": 100,
+    {  
+        "pk": 101,
         "model": "auth.user",
         "fields": {
             "username": "tsaylor",
@@ -17,8 +17,8 @@
             "date_joined": "2011-10-02 13:07:56"
         }
     },
-    {
-        "pk": 101,
+    {  
+        "pk": 102,
         "model": "auth.user",
         "fields": {
             "username": "james",
@@ -33,22 +33,6 @@
             "password": "sha1$6e6b0$2365f28059e98bccf3a83a636f962eec1fa0c759",
             "email": "j@bucketworks.com",
             "date_joined": "2011-10-02 13:16:51"
-        }
-    },
-    {
-        "pk": 100,
-        "model": "general.userprofile",
-        "fields": {
-            "url": "",
-            "user": 100
-        }
-    },
-    {
-        "pk": 101,
-        "model": "general.userprofile",
-        "fields": {
-            "url": "",
-            "user": 101
         }
     },
     {
@@ -398,12 +382,11 @@
         "fields": {
             "name": "cnc embroidery machine"
         }
-    }
+    },
     {
         "pk": 1,
         "model": "general.skill",
         "fields": {
-            "user_profiles": [],
             "title": "Soldering"
         }
     },
@@ -411,7 +394,6 @@
         "pk": 2,
         "model": "general.skill",
         "fields": {
-            "user_profiles": [],
             "title": "Welding"
         }
     },
@@ -419,7 +401,6 @@
         "pk": 3,
         "model": "general.skill",
         "fields": {
-            "user_profiles": [],
             "title": "Sewing"
         }
     },
@@ -427,7 +408,6 @@
         "pk": 4,
         "model": "general.skill",
         "fields": {
-            "user_profiles": [],
             "title": "Wood Working"
         }
     },
@@ -435,7 +415,6 @@
         "pk": 5,
         "model": "general.skill",
         "fields": {
-            "user_profiles": [],
             "title": "Circuit Hacking"
         }
     },
@@ -443,7 +422,6 @@
         "pk": 6,
         "model": "general.skill",
         "fields": {
-            "user_profiles": [],
             "title": "Computer Hacking"
         }
     }
