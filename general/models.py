@@ -26,7 +26,7 @@ class Skill(models.Model):
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
-    #subscriptions = TaggableManager()
+    subscriptions = TaggableManager( verbose_name='Subscriptions', blank=True )
     city = models.CharField( max_length=50, blank=True )
     state = models.CharField( max_length=50, blank=True )
     postal_code = models.CharField( max_length=25, blank=True )
