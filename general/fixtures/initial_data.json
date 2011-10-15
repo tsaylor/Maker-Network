@@ -36,22 +36,6 @@
         }
     },
     {
-        "pk": 100, 
-        "model": "general.userprofile", 
-        "fields": {
-            "url": "", 
-            "user": 100
-        }
-    }, 
-    {
-        "pk": 101, 
-        "model": "general.userprofile", 
-        "fields": {
-            "url": "", 
-            "user": 101
-        }
-    }, 
-    {
         "pk": 1, 
         "model": "general.organization", 
         "fields": {

@@ -1,4 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+{% if user.get_profile.image %}
+<img src="{{ MEDIA_URL }}{{ user.get_profile.image }}">
+{% endif %}
 {% include "general/generic_form.html" %}
 {% endblock content %}

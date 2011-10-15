@@ -9,8 +9,11 @@ from taggit.managers import TaggableManager
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
-    subscriptions = TaggableManager()
+    image = models.ImageField(upload_to='profile_pics', height_field='image_height', width_field='image_width', blank=True, null=True)
     url = models.URLField(blank=True)
+    image_height = models.IntegerField(blank=True, null=True)
+    image_width = models.IntegerField(blank=True, null=True)
+    subscriptions = TaggableManager(blank=True)
 
     def __unicode__(self):
         return self.user.__unicode__()

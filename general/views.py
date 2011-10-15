@@ -1,17 +1,20 @@
 from django.views.generic.create_update import update_object
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render_to_response
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 import general.models as models
+import general.forms as forms
 
 
 def view_profile(request):
     return edit_profile(request)
 
+@login_required
 def edit_profile(request):
-    return update_object(request, model=models.UserProfile, object_id=request.user.pk)
+    return update_object(request, form_class=forms.UserProfileForm, object_id=request.user.get_profile().pk)
 
 def leave_organization(request, object_id):
     if request.method == "POST":
