@@ -21,6 +21,8 @@ urlpatterns = patterns('',
     url(r'^resources/', include('general.resource_urls')),
     url(r'^search/', 'general.views.search', name='search_results'),
 
+    url(r'^api/', include('api.urls')),
+
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),

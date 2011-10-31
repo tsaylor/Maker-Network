@@ -4,3 +4,4 @@ django-registration==0.7
 django-taggit==0.9.3
 django-threadedcomments==0.5.3
 PIL
+django-piston
