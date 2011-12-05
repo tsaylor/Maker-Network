@@ -84,10 +84,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.comments',
-    'threadedcomments',
-    'registration',
+    'django-social-auth',
+    #'threadedcomments',
+    #'registration',
     'taggit',
-    'tagmail',
+    #'tagmail',
     'general',
 )
 
