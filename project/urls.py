@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     
     url(r'^profile/', 'general.views.view_profile', name='profile'),
     url(r'^groups/', include('general.org_urls')),
+    url(r'^skill/', include('general.skill_urls')),
     url(r'^resources/', include('general.resource_urls')),
     url(r'^search/', 'general.views.search', name='search_results'),
 

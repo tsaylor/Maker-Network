@@ -13,7 +13,7 @@
         {% if user.is_staff %}
         <a href="/admin/">admin</a> | 
         {% endif %}
-    <a href="{% url profile %}">{{user.get_full_name}}</a> | 
+    <a href="{% url profile %}">{{user.username}}</a> | 
     <a href="{% url auth_logout %}">Log Out</a>
     {% else %}
     <a href="{% url auth_login %}">Log in</a>
@@ -24,6 +24,7 @@
     <a href="{% url home %}">Home</a>
     <a href="{% url organization_list %}">Groups</a>
     <a href="{% url resource_list %}">Resources</a>
+    <a href="{% url skill_list %}">Skills</a>
     <form action="{% url search_results %}" method="GET">
         <input type="text" name="q" />
     </form>

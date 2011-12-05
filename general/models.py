@@ -7,13 +7,31 @@ from django.core.urlresolvers import reverse
 from taggit.managers import TaggableManager
 
 
+class Skill(models.Model):
+    #user_profiles = models.ManyToManyField(UserProfile, null=True, blank=True)
+    title = models.CharField( max_length=30 )
+
+    def __unicode__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('skill_detail', kwargs={'object_id': self.id})
+
+    @classmethod
+    def search(cls, q):
+        return cls.objects.all().distinct().filter(
+            Q(title__icontains=q)
+            )
+
+
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
-    image = models.ImageField(upload_to='profile_pics', height_field='image_height', width_field='image_width', blank=True, null=True)
+    subscriptions = TaggableManager( verbose_name='Subscriptions', blank=True )
+    city = models.CharField( max_length=50, blank=True )
+    state = models.CharField( max_length=50, blank=True )
+    postal_code = models.CharField( max_length=25, blank=True )
     url = models.URLField(blank=True)
-    image_height = models.IntegerField(blank=True, null=True)
-    image_width = models.IntegerField(blank=True, null=True)
-    subscriptions = TaggableManager(blank=True)
+    skills = models.ManyToManyField(Skill, related_name='user_profiles', null=True, blank=True)
 
     def __unicode__(self):
         return self.user.__unicode__()
@@ -78,4 +96,5 @@ class Resource(models.Model):
 
 admin.site.register(Resource)
 admin.site.register(Organization)
+admin.site.register(Skill)
 admin.site.register(UserProfile)
