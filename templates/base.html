@@ -1,7 +1,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="{{MEDIA_URL}}css/bootstrap.min.css" type="text/css" media="all" />
-    <!--link rel="stylesheet" href="{{MEDIA_URL}}css/base.css" type="text/css" media="all" /-->
+    <link rel="stylesheet" href="{{MEDIA_URL}}css/bootstrap-fix.css" type="text/css" media="all" />
     <style type="text/css" media="screen">
         {% block extrastyle %}
         {% endblock extrastyle %}
@@ -38,24 +38,13 @@
     </div>
     <div class="container">
         {% if messages %}
-        <div class="messages">
             {% for message in messages %}
-            <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        <div class="alert-message success">{{ message }}</div>
             {% endfor %}
-        </div>
         {% endif %}
-        <br><br>
         {% block content %}
         I'm the base template
         {% endblock content %}
-        <br style="clear: both;">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p>Please send bug reports to <a href="mailto:tim.saylor@gmail.com">Tim Saylor</a></p>
     </div>
 </body>
 </html>

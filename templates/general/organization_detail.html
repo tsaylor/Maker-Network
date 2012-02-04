@@ -1,28 +1,34 @@
 {% extends "base.html" %}
 
 {% block content %}
-<a href="{% url organization_list %}">Back to all groups</a>
+<a href="{% url organization_list %}">See all groups</a>
 <h2>{{ org.name }}</h2>
 <p>{{ org.description }}</p>
+
 {% if user in org.members.all %}
 <form action="{% url organization_leave org.id %}" method="POST">{% csrf_token %}
-    <input type="submit" name="Submit" value="Leave this group" />
+    <input class="btn" type="submit" name="Submit" value="Leave this group" />
 </form>
 {% else %}
 <form action="{% url organization_join org.id %}" method="POST">{% csrf_token %}
-    <input type="submit" name="Submit" value="Join this group" />
+    <input class="btn" type="submit" name="Submit" value="Join this group" />
 </form>
 {% endif %}
+
 <h3>Members</h3>
 <ul>
 {% for member in org.members.all %}
     <li>{{ member }}</li>
 {% endfor %}
 </ul>
+
+{% comment %}
 <h3>Resources</h3>
+<ul>
 {% for resource in org.resources.all %}
     <li>{{ resource.name }}</li>
 {% endfor %}
 </ul>
+{% endcomment %}
 
 {% endblock %}
