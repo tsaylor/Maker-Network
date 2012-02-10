@@ -1,7 +1,9 @@
 # Django settings for project project.
 # do this eventually: http://www.reddit.com/tb/h00c3
 
-import os
+import os, os.path
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
