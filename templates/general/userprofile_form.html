@@ -15,13 +15,14 @@
     {% for skill in user.get_profile.skills.all %}
     <li>{{ skill.title }}</li>
     {% endfor %}
+    <li style="list-style-type: none;"><a href="{% url skill_list %}">Add more skills</a></li>
 </ul>
 {% endif %}
 {% if user.organizations.all %}
 <h3>Organizations</h3>
 <ul>
     {% for org in user.organizations.all %}
-    <li>{{ org.name }}</li>
+    <li><a href="{% url organization_detail org.id %}">{{ org.name }}</a></li>
     {% endfor %}
 </ul>
 {% endif %}

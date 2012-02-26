@@ -2,23 +2,34 @@
 
 {% block content %}
 <a href="{% url skill_list %}">See all skills</a>
-<h2>{{ skill.title }}</h2>
-
-{% if user.get_profile in skill.user_profiles.all %}
-<form action="{% url skill_remove skill.id %}" method="POST">{% csrf_token %}
-    <input class="btn" type="submit" name="Submit" value="Remove this skill" />
-</form>
-{% else %}
-<form action="{% url skill_add skill.id %}" method="POST">{% csrf_token %}
-    <input class="btn" type="submit" name="Submit" value="Add this skill" />
-</form>
-{% endif %}
-
-<h3>People who have this skill</h3>
-<ul>
-{% for user_profile in skill.user_profiles.all %}
-    <li>{{ user_profile.user }}</li>
-{% endfor %}
-</ul>
+<div class="row">
+    <div class="span10">
+        <h2>{{ skill.title }}</h2>
+        <p>{{ skill.description }}</p>
+    </div>
+    <div class="span6" style="margin-top: 10px;">
+        {% if user.get_profile in skill.user_profiles.all %}
+        <form action="{% url skill_remove skill.id %}" method="POST">{% csrf_token %}
+            <input class="btn" type="submit" name="Submit" value="Remove this skill" />
+        </form>
+        {% else %}
+        <form action="{% url skill_add skill.id %}" method="POST">{% csrf_token %}
+            <input class="btn" type="submit" name="Submit" value="Add this skill" />
+        </form>
+        {% endif %}
+    </div>
+</div>
+<div class="row">
+    <div class="span8">
+        <h3>People who have this skill</h3>
+        <ul>
+        {% for user_profile in skill.user_profiles.all %}
+            <li><a href="{{ profile_view user_profile.user.username }}">{{ user_profile.user.get_full_name }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="span8">
+    </div>
+</div>
 
 {% endblock %}

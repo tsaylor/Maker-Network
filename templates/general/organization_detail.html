@@ -2,33 +2,49 @@
 
 {% block content %}
 <a href="{% url organization_list %}">See all groups</a>
-<h2>{{ org.name }}</h2>
-<p>{{ org.description }}</p>
+<div class="row">
+    <div class="span10">
+        <h2>{{ org.name }}</h2>
+        <p>{{ org.description }}</p>
+    </div>
+    <div class="span6" style="margin-top: 10px;">
+        {% if user == org.admin %}
+        <form action="{% url organization_edit org.id %}" method="GET">{% csrf_token %}
+            <input class="btn" type="submit" name="Submit" value="Edit" />
+        </form>
+        {% endif %}
+        {% if user in org.members.all %}
+        <form action="{% url organization_leave org.id %}" method="POST">{% csrf_token %}
+            <input class="btn" type="submit" name="Submit" value="Leave this group" />
+        </form>
+        {% else %}
+        <form action="{% url organization_join org.id %}" method="POST">{% csrf_token %}
+            <input class="btn" type="submit" name="Submit" value="Join this group" />
+        </form>
+        {% endif %}
 
-{% if user in org.members.all %}
-<form action="{% url organization_leave org.id %}" method="POST">{% csrf_token %}
-    <input class="btn" type="submit" name="Submit" value="Leave this group" />
-</form>
-{% else %}
-<form action="{% url organization_join org.id %}" method="POST">{% csrf_token %}
-    <input class="btn" type="submit" name="Submit" value="Join this group" />
-</form>
-{% endif %}
-
-<h3>Members</h3>
-<ul>
-{% for member in org.members.all %}
-    <li>{{ member }}</li>
-{% endfor %}
-</ul>
-
-{% comment %}
-<h3>Resources</h3>
-<ul>
-{% for resource in org.resources.all %}
-    <li>{{ resource.name }}</li>
-{% endfor %}
-</ul>
-{% endcomment %}
+        <a href="{{ org.url }}">view site</a>
+    </div>
+</div>
+<div class="row">
+    <div class="span8">
+        <h3>Members</h3>
+        <ul>
+        {% for member in org.members.all %}
+            <li><a href="{% url profile_view member.username %}">{{ member.get_full_name }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="span8">
+        {% comment %}
+        <h3>Resources</h3>
+        <ul>
+        {% for resource in org.resources.all %}
+            <li>{{ resource.name }}</li>
+        {% endfor %}
+        </ul>
+        {% endcomment %}
+    </div>
+</div>
 
 {% endblock %}

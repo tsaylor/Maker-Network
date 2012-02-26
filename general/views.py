@@ -10,7 +10,7 @@ import general.models as models
 import general.forms as forms
 
 
-def view_profile(request):
+def view_profile(request, username):
     return edit_profile(request)
 
 @login_required

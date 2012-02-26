@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     url(r'^$', 'tagmail.views.home', name='home'),
     url(r'^view_thread/(?P<pk>\d*)/(?P<slug>[\w-]*)$', 'tagmail.views.view_thread', name='tagmail_view_thread'),
     
-    url(r'^profile/', 'general.views.view_profile', name='profile'),
+    url(r'^profile/(?P<username>.*)$', 'general.views.view_profile', name='profile_view'),
     url(r'^groups/', include('general.org_urls')),
     url(r'^skill/', include('general.skill_urls')),
     url(r'^resources/', include('general.resource_urls')),
