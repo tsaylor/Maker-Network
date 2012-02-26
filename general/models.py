@@ -10,7 +10,6 @@ from taggit.managers import TaggableManager
 class Skill(models.Model):
     #user_profiles = models.ManyToManyField(UserProfile, null=True, blank=True)
     title = models.CharField( max_length=30 )
-    description = models.TextField(blank = True)
 
     def __unicode__(self):
         return self.title
