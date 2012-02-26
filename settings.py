@@ -81,7 +81,7 @@ INSTALLED_APPS = (
 #    'django.contrib.comments',
     'social_auth',
     #'threadedcomments',
-    #'registration',
+    'registration',
     'taggit',
     #'tagmail',
     'general',
