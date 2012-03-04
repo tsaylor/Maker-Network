@@ -1,5 +1,5 @@
 settings_local*.py
-local_settings.py
+*local_settings.py
 *.db
 *.class
 *.pyc

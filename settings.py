@@ -102,6 +102,12 @@ AUTH_PROFILE_MODULE = 'general.UserProfile'
 #COMMENTS_APP = 'threadedcomments'
 #COMMENT_MAX_LENGTH = 3000
 
+EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
+
 try:
     from local_settings import *
 except ImportError:
