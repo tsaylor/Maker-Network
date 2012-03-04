@@ -5,7 +5,7 @@ import os, os.path
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -98,10 +98,12 @@ CONTEXT_PROCESSORS = (
 
 ACCOUNT_ACTIVATION_DAYS = 7
 AUTH_PROFILE_MODULE = 'general.UserProfile'
+LOGIN_REDIRECT_URL = '/'
 #INTERNAL_IPS = ('127.0.0.1',)
 #COMMENTS_APP = 'threadedcomments'
 #COMMENT_MAX_LENGTH = 3000
 
+EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = ''
