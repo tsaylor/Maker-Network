@@ -51,7 +51,7 @@ def home(request):
         tagthreads = TagThread.objects.get_subscribed(request.user, tag=selected)
     
     context = {"tagthreads":tagthreads,
-               "subscribedtags":request.user.get_profile().subscriptions.all(),
+               "subscribedtags":request.user.get_profile().interests.all(),
                "selected":selected,
                "form":form,
               }

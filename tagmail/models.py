@@ -8,7 +8,7 @@ from taggit.managers import TaggableManager
 
 class TagThreadManager(models.Manager):
     def get_subscribed(self, user, tag=None):
-        usertags = user.get_profile().subscriptions.all()
+        usertags = user.get_profile().interests.all()
         if tag != None and tag in usertags:
             usertags = [tag]
         return self.filter(tags__in = usertags)

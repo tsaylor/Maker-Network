@@ -11,7 +11,7 @@ import general.forms as forms
 
 
 def view_profile(request, username):
-    return edit_profile(request)
+    return render_to_response('general/userprofile_detail.html', {}, context_instance=RequestContext(request))
 
 @login_required
 def edit_profile(request):

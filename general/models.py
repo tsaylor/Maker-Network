@@ -26,7 +26,8 @@ class Skill(models.Model):
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
-    subscriptions = TaggableManager( verbose_name='Subscriptions', blank=True )
+    bio = models.TextField(blank=True)
+    interests = TaggableManager( verbose_name='Interests', blank=True )
     city = models.CharField( max_length=50, blank=True )
     state = models.CharField( max_length=50, blank=True )
     postal_code = models.CharField( max_length=25, blank=True )
@@ -37,7 +38,7 @@ class UserProfile(models.Model):
         return self.user.__unicode__()
 
     def get_absolute_url(self):
-        return reverse('general.views.view_profile')
+        return reverse('general.views.view_profile', kwargs={'username':self.user.username})
 
 def create_user_profile(sender, **kwargs):
     """ Creates a UserProfile for each new User """
