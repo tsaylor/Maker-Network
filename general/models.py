@@ -28,11 +28,14 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
     bio = models.TextField(blank=True)
     interests = TaggableManager( verbose_name='Interests', blank=True )
-    city = models.CharField( max_length=50, blank=True )
-    state = models.CharField( max_length=50, blank=True )
-    postal_code = models.CharField( max_length=25, blank=True )
+    location = models.CharField( max_length=100, blank=True )
+    #city = models.CharField( max_length=50, blank=True )
+    #state = models.CharField( max_length=50, blank=True )
+    #postal_code = models.CharField( max_length=25, blank=True )
     url = models.URLField(blank=True)
-    skills = models.ManyToManyField(Skill, related_name='user_profiles', null=True, blank=True)
+    #skills = models.ManyToManyField(Skill, related_name='user_profiles', null=True, blank=True)
+    avatar = models.ImageField(upload_to='/avatars/', blank=True, null=True)
+    bg_image = models.ImageField(upload_to='/bg_images/', blank=True, null=True, verbose_name="Background image")
 
     def __unicode__(self):
         return self.user.__unicode__()
