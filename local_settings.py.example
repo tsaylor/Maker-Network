@@ -3,10 +3,14 @@ import os
 DEBUG = True
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '_wy9hs@-ywx$v*3%ptwen=o!win&*j^vp@j=01+gf^&)07(d3%'
+SECRET_KEY = '39P(AfO*&Egfo*&EANFNO*EAFHOEAGOESgihRghjwowejgoewhFH383'
 
 MEDIA_SERVE = True
 MEDIA_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'media'))
 
-DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'site.db'
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME' : 'site.db'
+    }
+}
