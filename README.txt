@@ -9,17 +9,17 @@ This is web software for managing the relations between co-operative makers and 
 
 # Do Setup
 
-* set up virtualenv using `requirements.pip`:
+Set up virtualenv using `requirements.pip`:
 
 
     virtualenv ~/virtualenv_directory_wherever
     source ~/virtualenv_directory_wherever/bin/activate
     pip install -r requirements.pip
 
-
 * set up local_settings.py based on local_settings.py.example
 * configure some options... (see -h for what they are ahead of time, if you like)
 
+Like so:
 
     ./configure
 
