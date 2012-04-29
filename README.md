@@ -25,7 +25,9 @@ After doing this, if you're making a fresh database, you need to do (using your 
     python manage.py syncdb --all
     python manage.py migrate --fake
 
-<A name="toc1-27" title="Generate Scripts/Configs" />
+If you are **not doing a fresh install**, please see the section **After Update** below rather than using the above commands.
+
+<A name="toc1-29" title="Generate Scripts/Configs" />
 # Generate Scripts/Configs
 
 * configure some options... (see -h for what they are ahead of time, if you like)
@@ -38,29 +40,29 @@ If that's not OK, use ./configure -h to determine what you need to do to change 
 
     make
 
-<A name="toc1-40" title="Running" />
+<A name="toc1-42" title="Running" />
 # Running
 
 Once the setup is complete, run uwsgi and nginx, like so (you'll need these to stay running, but how you do that is up to you):
 
-<A name="toc2-45" title="uwsgi" />
+<A name="toc2-47" title="uwsgi" />
 ## uwsgi
 
 While using your virtualenv:
 
     ./runuwsgi
 
-<A name="toc2-52" title="nginx" />
+<A name="toc2-54" title="nginx" />
 ## nginx
 
 In the code directory:
 
     ./runnginx
 
-<A name="toc1-59" title="After Update" />
+<A name="toc1-61" title="After Update" />
 # After Update
 
-Once you have a running install, and you get the latest, you'll of course want to do a `make`.  This will make sure your scripts are up to date.  You'll also need to update your *Django* database schemas.  To do this, you'll want to run (using your virtualenv, which is of course updated/rebuilt if need be, right?)
+Once you have a running install, and you get the latest, you'll of course want to do a `make`.  This will make sure your scripts are up to date.  You'll also need to update your **Django** database schemas.  To do this, you'll want to run (using your virtualenv, which is of course updated/rebuilt if need be, right?)
 
     python manage.py syncdb
     python manage.py migrate

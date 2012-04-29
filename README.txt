@@ -22,6 +22,8 @@ After doing this, if you're making a fresh database, you need to do (using your 
     python manage.py syncdb --all
     python manage.py migrate --fake
 
+If you are **not doing a fresh install**, please see the section **After Update** below rather than using the above commands.
+
 # Generate Scripts/Configs
 
 * configure some options... (see -h for what they are ahead of time, if you like)
@@ -52,7 +54,7 @@ In the code directory:
 
 # After Update
 
-Once you have a running install, and you get the latest, you'll of course want to do a `make`.  This will make sure your scripts are up to date.  You'll also need to update your *Django* database schemas.  To do this, you'll want to run (using your virtualenv, which is of course updated/rebuilt if need be, right?)
+Once you have a running install, and you get the latest, you'll of course want to do a `make`.  This will make sure your scripts are up to date.  You'll also need to update your **Django** database schemas.  To do this, you'll want to run (using your virtualenv, which is of course updated/rebuilt if need be, right?)
 
     python manage.py syncdb
     python manage.py migrate
