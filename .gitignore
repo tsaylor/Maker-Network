@@ -13,3 +13,4 @@ ant-user.properties
 django_docs
 *.swp
 doc/_build
+*.pyc

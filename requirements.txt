@@ -9,3 +9,4 @@ django-social-auth
 python-openid
 oauth2
 django-smtp-ssl
+uwsgi==1.1.2
