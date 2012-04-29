@@ -1,4 +1,5 @@
 from django.views.generic.create_update import update_object
+from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render_to_response
@@ -13,10 +14,12 @@ import general.forms as forms
 def view_profile(request, username):
     return render_to_response('general/userprofile_detail.html', {}, context_instance=RequestContext(request))
 
+@csrf_protect
 @login_required
 def edit_profile(request):
     return update_object(request, form_class=forms.UserProfileForm, object_id=request.user.get_profile().pk, extra_context={'user':request.user, })
 
+@csrf_protect
 @login_required
 def leave_organization(request, object_id):
     if request.method == "POST":
@@ -25,6 +28,7 @@ def leave_organization(request, object_id):
         messages.add_message(request, messages.INFO, 'You have left %s' % org.name)
     return HttpResponseRedirect(reverse('organization_detail', kwargs={'object_id':org.id}))
 
+@csrf_protect
 @login_required
 def join_organization(request, object_id):
     if request.method == "POST":
@@ -33,6 +37,7 @@ def join_organization(request, object_id):
         messages.add_message(request, messages.INFO, 'You have joined %s' % org.name)
     return HttpResponseRedirect(reverse('organization_detail', kwargs={'object_id':org.id}))
 
+@csrf_protect
 @login_required
 def remove_resource(request, resource_id):
     if request.method == "POST":
@@ -42,6 +47,7 @@ def remove_resource(request, resource_id):
         messages.add_message(request, messages.INFO, 'You have removed your %s from your inventory' % resource.name)
     return HttpResponseRedirect(reverse('resource_detail', kwargs={'object_id':resource.id}))
 
+@csrf_protect
 @login_required
 def add_resource(request, resource_id):
     if request.method == "POST":
@@ -51,6 +57,7 @@ def add_resource(request, resource_id):
         messages.add_message(request, messages.INFO, 'You have added %s to your inventory' % resource.name)
     return HttpResponseRedirect(reverse('resource_detail', kwargs={'object_id':resource.id}))
 
+@csrf_protect
 @login_required
 def add_skill(request, object_id):
     skill = get_object_or_404(models.Skill, id = object_id)
@@ -59,6 +66,7 @@ def add_skill(request, object_id):
     messages.add_message(request, messages.INFO, 'You have added %s to your skills' % skill.title)
     return HttpResponseRedirect(reverse('skill_detail', kwargs={'object_id':skill.id}))
 
+@csrf_protect
 @login_required
 def remove_skill(request, object_id):
     skill = get_object_or_404(models.Skill, id = object_id)
