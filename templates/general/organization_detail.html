@@ -31,7 +31,7 @@
         <h3>Members</h3>
         <ul>
         {% for member in org.members.all %}
-            <li><a href="{% url profile_view member.username %}">{{ member.get_full_name }}</a></li>
+            <li><a href="{% url profile_view member.username %}">{% if member.get_full_name %} {{ member.get_full_name }}{% else %} {{ member.username }} {% endif %}</a></li>
         {% endfor %}
         </ul>
     </div>
