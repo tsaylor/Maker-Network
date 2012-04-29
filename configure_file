@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+
+import json
+import sys
+
+if __name__ == '__main__' :
+	try :
+		options = json.load(open('configure.json'))
+	except IOError :
+		sys.stderr.write('could not open configure.json, use configure script first.\n')
+		sys.exit(1)
+
+	f = sys.argv[1]
+	f_in = '%s.in' % f
+
+	contents = open(f_in).read()
+
+	for k,v in options.items() :
+		contents = contents.replace('{{%s}}' % k, v)
+
+	fhw = open(f, 'w')
+	try :
+		fhw.write(contents)
+	finally :
+		fhw.close()

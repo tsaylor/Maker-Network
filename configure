@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+import optparse
+import json
+import os, os.path
+import sys
+
+if __name__ == '__main__' :
+	os.chdir(os.path.abspath(os.path.dirname(__file__)))
+
+	parser = optparse.OptionParser()
+	parser.add_option('-v', '--virtualenv', dest='virtualenv', help='path to the virtualenv to use', default=os.environ.get('VIRTUAL_ENV', None))
+	parser.add_option('-d', '--working-dir', dest='working_dir', help='directory to store sockets and logs in.', default=os.path.abspath(os.path.dirname(__file__)))
+	parser.add_option('-c', '--code-dir', dest='code_dir', help='directory to store the code (git checkout) in. generally will be this directory. no real installation is done.', default=os.path.abspath(os.path.dirname(__file__)))
+	parser.add_option('-f', action='store_true', dest='force', default=False, help='needed if not the first run of configure that succeeds; force overwrite of configuration.')
+
+	opts, args = parser.parse_args()
+
+	if not opts.virtualenv :
+		print '-v argument is required.'
+		sys.exit(1)
+
+	assert os.path.exists(opts.virtualenv)
+	assert os.path.exists(opts.working_dir)
+	assert os.path.exists(opts.code_dir)
+
+	out_opts = {
+		'virtualenv' : opts.virtualenv,
+		'working_dir' : opts.working_dir,
+		'code_dir' : opts.code_dir,
+	}
+
+	def printout(d) :
+		for k,v in d.items() :
+			print k.ljust(20, '.') + v
+
+	if os.path.exists('configure.json') and not opts.force :
+		print 'existing config, use -f to force overwrite:'
+		printout(json.load(open('configure.json')))
+		print 'not configured.'
+		sys.exit(1)
+
+	print 'writing config:'
+	printout(out_opts)
+
+	fh = open('configure.json', 'w')
+	json.dump(out_opts, fh)
+	fh.close()
