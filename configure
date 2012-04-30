@@ -12,6 +12,8 @@ if __name__ == '__main__' :
 	parser.add_option('-d', '--working-dir', dest='working_dir', help='directory to store sockets and logs in.', default=os.path.abspath(os.path.dirname(__file__)))
 	parser.add_option('-c', '--code-dir', dest='code_dir', help='directory to store the code (git checkout) in. generally will be this directory. no real installation is done.', default=os.path.abspath(os.path.dirname(__file__)))
 	parser.add_option('-f', action='store_true', dest='force', default=False, help='needed if not the first run of configure that succeeds; force overwrite of configuration.')
+	parser.add_option('--mx', dest='mx', help="sent email via mail exchange.")
+	parser.add_option('--admin-email', dest='admin_email', help="email address to send system status messages to.")
 
 	opts, args = parser.parse_args()
 
@@ -19,14 +21,12 @@ if __name__ == '__main__' :
 		print '-v argument is required.'
 		sys.exit(1)
 
-	assert os.path.exists(opts.virtualenv)
-	assert os.path.exists(opts.working_dir)
-	assert os.path.exists(opts.code_dir)
-
 	out_opts = {
 		'virtualenv' : opts.virtualenv,
 		'working_dir' : opts.working_dir,
 		'code_dir' : opts.code_dir,
+		'mx' : opts.mx,
+		'admin_email' : opts.admin_email,
 	}
 
 	def printout(d) :
@@ -37,6 +37,13 @@ if __name__ == '__main__' :
 		print 'existing config, use -f to force overwrite:'
 		printout(json.load(open('configure.json')))
 		print 'not configured.'
+		sys.exit(0)
+
+	assert os.path.exists(out_opts['virtualenv'])
+	assert os.path.exists(out_opts['working_dir'])
+	assert os.path.exists(out_opts['code_dir'])
+	assert opts['mx']
+	assert opts['admin_email']
 
 	print 'writing config:'
 	printout(out_opts)

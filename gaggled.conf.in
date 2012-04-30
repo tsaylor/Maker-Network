@@ -7,9 +7,9 @@ gaggled {
   path /usr/sbin
 
   smtpgate {
-    mx    smtp.truct.org
-    from  makernetwork@pumpingstationone.org
-    to    pumping-station-one-operations@googlegroups.com
+    mx    {{mx}}
+    from  makernetwork@localhost
+    to    {{admin_email}}
     helo  localhost
   }
 }
@@ -29,4 +29,9 @@ progy {
       propagate true
     }
   }
+}
+
+smptpgate {
+  command gaggled_smtpgate
+  argv "-c {{code_dir}}/gaggled.conf"
 }

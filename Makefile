@@ -1,4 +1,4 @@
-all: runuwsgi nginx.conf
+all: runuwsgi nginx.conf gaggled.conf
 	true
 
 clean:
