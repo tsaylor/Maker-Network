@@ -24,7 +24,7 @@ http {
     gzip_disable "MSIE [1-6]\.(?!.*SV1)";
 
     server {
-        listen 8000;
+        listen 80;
         server_name localhost;
 
         location /admin/media/ {
