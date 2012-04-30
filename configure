@@ -37,7 +37,6 @@ if __name__ == '__main__' :
 		print 'existing config, use -f to force overwrite:'
 		printout(json.load(open('configure.json')))
 		print 'not configured.'
-		sys.exit(1)
 
 	print 'writing config:'
 	printout(out_opts)
