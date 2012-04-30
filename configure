@@ -14,7 +14,7 @@ if __name__ == '__main__' :
 	parser.add_option('-f', action='store_true', dest='force', default=False, help='needed if not the first run of configure that succeeds; force overwrite of configuration.')
 	parser.add_option('--mx', dest='mx', help="sent email via mail exchange.")
 	parser.add_option('--admin-email', dest='admin_email', help="email address to send system status messages to.")
-
+	parser.add_option('--from-email', dest='from_email', help="send email from this address.")
 	opts, args = parser.parse_args()
 
 	if not opts.virtualenv :
@@ -27,6 +27,7 @@ if __name__ == '__main__' :
 		'code_dir' : opts.code_dir,
 		'mx' : opts.mx,
 		'admin_email' : opts.admin_email,
+		'from_email' : opts.from_email,
 	}
 
 	def printout(d) :
@@ -44,6 +45,7 @@ if __name__ == '__main__' :
 	assert os.path.exists(out_opts['code_dir'])
 	assert out_opts['mx']
 	assert out_opts['admin_email']
+	assert out_opts['from_email']
 
 	print 'writing config:'
 	printout(out_opts)

@@ -8,7 +8,7 @@ gaggled {
 
   smtpgate {
     mx    {{mx}}
-    from  makernetwork@localhost
+    from  {{from_email}}
     to    {{admin_email}}
     helo  localhost
   }
