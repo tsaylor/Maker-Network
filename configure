@@ -42,8 +42,8 @@ if __name__ == '__main__' :
 	assert os.path.exists(out_opts['virtualenv'])
 	assert os.path.exists(out_opts['working_dir'])
 	assert os.path.exists(out_opts['code_dir'])
-	assert opts['mx']
-	assert opts['admin_email']
+	assert out_opts['mx']
+	assert out_opts['admin_email']
 
 	print 'writing config:'
 	printout(out_opts)
