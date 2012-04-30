@@ -1,0 +1,32 @@
+gaggled {
+  eventurl tcp://127.0.0.1:3456
+  controlurl tcp://127.0.0.1:3457
+  tick 100
+  startwait 50
+
+  path /usr/sbin
+
+  smtpgate {
+    mx    smtp.truct.org
+    from  makernetwork@pumpingstationone.org
+    to    pumping-station-one-operations@googlegroups.com
+    helo  localhost
+  }
+}
+
+uwsgi {
+  command uwsgi
+  argv "-H {{virtualenv}} -log-x-forwarded-for -s {{working_dir}}/mkn.uwsgi.sock -w makernetwork_wsgi -b16383 --post-buffering=16384 --enable-threads --log-slow 300 --log-4xx --log-5xx -m"
+}
+
+progy {
+  command nginx
+  argv "-c {{code_dir}}/nginx.conf"
+
+  depends {
+    uwsgi {
+      delay 500
+      propagate true
+    }
+  }
+}

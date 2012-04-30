@@ -7,6 +7,9 @@ clean:
 configure.json: configure Makefile
 	./configure
 
+gaggled.conf: configure.json gaggled.conf.in
+	./configure_file gaggled.conf
+
 nginx.conf: configure.json nginx.conf.in
 	./configure_file nginx.conf
 
