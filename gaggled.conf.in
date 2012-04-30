@@ -19,7 +19,7 @@ uwsgi {
   argv "-H {{virtualenv}} -log-x-forwarded-for -s {{working_dir}}/mkn.uwsgi.sock -w makernetwork_wsgi -b16383 --post-buffering=16384 --enable-threads --log-slow 300 --log-4xx --log-5xx -m"
 }
 
-progy {
+nginx {
   command nginx
   argv "-c {{code_dir}}/nginx.conf"
 
