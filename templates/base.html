@@ -19,7 +19,7 @@
                     <!--a href="{% url resource_list %}">Resources</a-->
                     <li><a href="{% url skill_list %}">Skills</a></li>
                 </ul>
-                <form class="pull-left" action="{% url search_results %}" method="GET">
+                <form class="pull-left" action="{% url search_results %}" method="GET">{% csrf_token %}
                     <input type="text" name="q" placeholder="Search" />
                 </form>
                 <ul class="nav secondary-nav">
