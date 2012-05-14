@@ -7,4 +7,5 @@
     <li><a href="{% url skill_detail skill.id %}">{{ skill.title }}</a></li>
 {% endfor %}
 </ul>
+<a href="{% url skill_create %}">Add a new skill</a>
 {% endblock %}

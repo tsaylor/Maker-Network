@@ -1,5 +1,5 @@
 import django.forms as forms
-from general.models import UserProfile, Organization
+from general.models import UserProfile, Organization, Skill
 
 class UserProfileForm(forms.ModelForm):
     first_name = forms.CharField(max_length=30)
@@ -32,3 +32,7 @@ class OrgForm(forms.ModelForm):
     class Meta:
         model = Organization
         exclude = ('members', 'admin', 'resources')
+
+class SkillForm(forms.ModelForm):
+    class Meta:
+        model = Skill

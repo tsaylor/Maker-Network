@@ -1,4 +1,5 @@
 from django.views.generic.create_update import update_object
+from django.views.generic import CreateView
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -6,11 +7,13 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
+from django.utils.decorators import method_decorator
 
 import general.models as models
 import general.forms as forms
 
 
+@csrf_protect
 def view_profile(request, username):
     return render_to_response('general/userprofile_detail.html', {}, context_instance=RequestContext(request))
 
@@ -36,6 +39,27 @@ def join_organization(request, object_id):
         org.members.add(request.user)
         messages.add_message(request, messages.INFO, 'You have joined %s' % org.name)
     return HttpResponseRedirect(reverse('organization_detail', kwargs={'object_id':org.id}))
+
+class CreateOrgView(CreateView):
+    form_class = forms.OrgForm
+    template_name = "general/organization_form.html"
+    success_url = '/groups/%(id)d'
+
+    @method_decorator(login_required)
+    @method_decorator(csrf_protect)
+    def dispatch(self, *args, **kwargs):
+        return super(CreateOrgView, self).dispatch(*args, **kwargs)
+
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+        if instance.admin_id == None:
+            instance.admin = self.request.user
+            instance.save()
+            if self.request.user not in instance.members.all():
+                instance.members.add(self.request.user)
+                instance.save()
+        return super(CreateOrgView, self).form_valid(form)
+
 
 @csrf_protect
 @login_required
@@ -74,6 +98,15 @@ def remove_skill(request, object_id):
     profile.skills.remove(skill)
     messages.add_message(request, messages.INFO, 'You have removed %s from your skills' % skill.title)
     return HttpResponseRedirect(reverse('skill_detail', kwargs={'object_id':skill.id}))
+
+class CreateSkillView(CreateView):
+    form_class = forms.SkillForm
+    template_name = "general/skill_form.html"
+    success_url = '/skill/'
+    @method_decorator(login_required)
+    @method_decorator(csrf_protect)
+    def dispatch(self, *args, **kwargs):
+        return super(CreateSkillView, self).dispatch(*args, **kwargs)
 
 def search(request):
     q = request.GET.get('q', '')

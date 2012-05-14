@@ -61,7 +61,7 @@ class Organization(models.Model):
     city = models.CharField(max_length = 255, blank = True)
     state = models.CharField(max_length = 255, blank = True)
     postal_code = models.CharField(max_length = 255, blank = True)
-    members = models.ManyToManyField(User, related_name="organizations")
+    members = models.ManyToManyField(User, related_name="organizations", blank=True, null=True)
     admin = models.ForeignKey(User)
     resources = models.ManyToManyField('Resource', related_name='owners', blank=True, null=True)
 

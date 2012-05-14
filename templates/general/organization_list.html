@@ -7,4 +7,5 @@
     <li><a href="{% url organization_detail org.id %}">{{ org.name }}</a></li>
 {% endfor %}
 </ul>
+<a href="{% url organization_create %}">Add a new group</a>
 {% endblock %}

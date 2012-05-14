@@ -23,7 +23,7 @@
 </ul>
 {% endif %}
 {% if user.organizations.all %}
-<h3>Organizations</h3>
+<h3>Groups</h3>
 <ul>
     {% for org in user.organizations.all %}
     <li><a href="{% url organization_detail org.id %}">{{ org.name }}</a></li>
